@@ -1,0 +1,9 @@
+<%= link_to 'Início', root_path %>
+<% if current_user.present? %>
+  <% if current_user.is_admin? %>
+    <%= link_to 'Dashboard', dashboard_path %>
+  <% end %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
